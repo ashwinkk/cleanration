@@ -1,0 +1,14 @@
+from __future__ import unicode_literals
+
+from django.db import models
+
+from RationOffice.models import RationShop
+
+# Create your models here.
+
+class Approved(models.Model):
+    RationShop = models.ForeignKey(RationShop,on_delete=models.CASCADE)
+    Status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.RationShop.Location

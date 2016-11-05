@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Depot{% endblock %}
+
+{% block headers %}
+<style>
+  .centralize .input-group,.centralize button{
+  margin:auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  }
+</style>
+<script src="{% static 'js/depot_status.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container centralize">
+  <div class="jumbotron">
+    <h2>Depot Status Enquiry</h2>
+  </div>
+  <div class="input-group">
+   <label for="ration_id">Ration ID</label>
+  <input class="form-control" id="ration_id" name="ration_id" type="text"> 
+</div>
+<div class="input-group"> 
+  <button class="btn btn-default" id="check_status">Status</button>
+</div>
+<div class="result">
+  <h2 id="result_post"></h2>
+</div>
+</div>
+{% endblock %}

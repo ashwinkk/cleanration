@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clean Ration|{% block title %}{% endblock %}</title>
+    <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block headers %}
+    {% endblock %}
+  </head>
+  <style>
+    body{
+    height:100vp;
+    }    
+  </style>
+  <body>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>

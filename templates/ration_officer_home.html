@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block headers %}
+<link rel="stylesheet" href="{% static 'css/office_home.css' %}">
+<script src="{% static 'js/home_switcher.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/morris.css' %}">
+
+<script src="{% static 'js/morris.min.js' %}"></script>
+<script src="{% static 'js/raphael.min.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Supply Office</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Log out</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="container">
+  <div class="greet">
+    <h2>Welcome</h2>
+  </div>
+  <div class="tabs">
+  <hr>  
+  <ul class="nav nav-pills nav-justified">
+    <li role="presentation" class="active"><a href="#" id="track">Track</a></li>
+    <li role="presentation"><a href="#" id="allocate">Allocate</a></li>
+    <li role="presentation"><a href="#" id="approve">Approve</a></li>
+    <li role="presentation"><a href="#" id="report">Reported Issues</a></li>
+  </ul>
+  <hr>
+</div>
+<div class="viewport">
+  <div id="graph" >
+    <div class="tile" >
+        <div class="p-10">
+	  <h3>Sugar</h3>
+          <div id="sugar-chart" class="main-chart"></div>
+	  <h3>Rice</h3>
+	  <div id="rice-chart" class="main-chart"></div>
+	  <h3>Wheat</h3>
+	  <div id="wheat-chart" class="main-chart"></div>
+	  <h3>Kerosene</h3>
+	  <div id="kerosene-chart" class="main-chart"></div>
+        </div>  
+    </div>
+  </div>
+  <div class="ent allocate" id="m_allocate">
+    <button class="btn btn-default" id="allocate_grain">Allocate for this month</button>
+    <div id="allocate_area"></div>
+  </div>
+  <div class="ent approve" id="m_approve">
+    <form>
+      <div class="input-group">
+	<input type="text" class="form-control" placeholder="shop id" name="shop_id" id="shop_id">
+      </div>
+      <button type="button" class="btn btn-default" id="approve_shop">Submit</button>
+      <div class="result">
+	<div id="json_res">
+	  
+	</div>
+	<button class="btn btn-default">Finish</button>
+      </div>
+    <form>
+  </div>
+  <div class="ent report" id="m_report">
+    reports
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  new Morris.Line({
+  element:'sugar-chart',
+  data:[
+  { year: '1', r1: 20,r2 :10,r3: 6 },
+  { year: '2', r1: 10,r2 :5, r3: 7},
+  { year: '3', r1: 5, r2 :6, r3: 8},
+  { year: '4', r1: 5, r2:7, r3:10 },
+  { year: '5', r1: 20, r2: 11, r3: 11 }
+  ],
+  xkey: 'year',
+  ykeys: ['r1','r2','r3'],
+  labels: ['Karingachira','Thripunithura','Kannamkulamkara']
+  });
+  new Morris.Line({
+  element:'wheat-chart',
+  data:[
+  { year: '1', r1: 20,r2 :9,r3: 16 },
+  { year: '2', r1: 10,r2 :10, r3: 5},
+  { year: '3', r1: 1, r2 :8, r3: 3},
+  { year: '4', r1: 7, r2:15, r3:4 },
+  { year: '5', r1: 10, r2: 30, r3: 7 }
+  ],
+  xkey: 'year',
+  ykeys: ['r1','r2','r3'],
+  labels: ['Karingachira','Thripunithura','Kannamkulamkara']
+  });
+  new Morris.Line({
+  element:'kerosene-chart',
+  data:[
+  { year: '1', r1: 5,r2 :1,r3: 1 },
+  { year: '2', r1: 1,r2 :5, r3: 3},
+  { year: '3', r1: 1, r2 :5, r3: 1},
+  { year: '4', r1: 1, r2:1, r3:1 },
+  { year: '5', r1: 2, r3: 1 }
+  ],
+  xkey: 'year',
+  ykeys: ['r1','r2','r3'],
+  labels: ['Karingachira','Thripunithura','Kannamkulamkara']
+  });
+  new Morris.Line({
+  element:'rice-chart',
+  data:[
+  { year: '1', r1: 2,r2 :15,r3: 5 },
+  { year: '2', r1: 20,r2 :1, r3: 11},
+  { year: '3', r1: 10, r2 :8, r3: 2},
+  { year: '4', r1: 4, r2:5, r3:20 },
+  { year: '5', r2: 11, r3: 3 }
+  ],
+  xkey: 'year',
+  ykeys: ['r1','r2','r3'],
+  labels: ['Karingachira','Thripunithura','Kannamkulamkara']
+  });
+</script>
+{% endblock %}

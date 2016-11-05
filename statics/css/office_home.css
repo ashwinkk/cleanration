@@ -1,0 +1,40 @@
+.ent{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+    width: 100%;
+}
+.viewport{
+    position: relative;
+}
+.show{
+    z-index: 99;
+    opacity: 1;
+}
+.result{
+    opacity:0;
+}
+.customtb{
+    width: 100%;
+}
+
+.customtb th{
+    text-align: center;
+    font-size: 20px;
+}
+
+.customtb td.complaint{
+    width: 40%;
+}
+
+.customtb td{
+    width: 15%;
+    font-size: 17px;
+    text-align: center;
+}
+@media (min-width: 768px){
+    .navbar-right{
+	margin-right:unset;
+    }
+}

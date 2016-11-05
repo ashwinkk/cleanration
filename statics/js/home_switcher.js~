@@ -1,0 +1,10 @@
+$(document).ready({
+    $('#track').click(function(){
+	alert("track");
+    });
+    $('#allocate').click(function(){
+	alert("allocate");
+    });
+    $('#approve').click(function(){
+    });
+});
